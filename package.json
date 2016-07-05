@@ -4,7 +4,8 @@
   "description": "React 種子檔案",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server",
+    "build": "webpack -p"
   },
   "author": "Jerry-Hong <s6323859@hotmail.com>",
   "license": "MIT",
@@ -35,6 +36,7 @@
     "rucksack-css": "^0.8.6",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
   }
 }
