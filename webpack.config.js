@@ -20,12 +20,13 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './assets'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/assets/'
     },
     module: {
         loaders: [{
                 test: /.js$/,
-                loader: 'babel-loader',
+                loaders: ['react-hot-loader', 'babel-loader'],
                 include: [
                     path.resolve(__dirname, 'Client'),
                     path.resolve(__dirname, 'Common'),
@@ -37,10 +38,8 @@ module.exports = {
                     'postcss',
                     'sass'
                 ])
-            }, {
-                test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url?limit=10000&mimetype=application/font-woff"
-            },
+            }, 
+            { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
             { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
             { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
             { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
@@ -67,7 +66,10 @@ module.exports = {
     devServer: {
         contentBase: './',
         publicPath: '/assets/',
+        lazy: false,
         hot: true,
-        inline: true
+        inline: true,
+        quite: true,
+        info: false
     }
 }
